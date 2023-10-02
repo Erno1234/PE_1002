@@ -31,8 +31,8 @@ public class Orai1002 {
 
     private static void kirak() {
         for (int i = 1; i < pakli.length; i++) {
-            System.out.println("%+8 "+ pakli[i]);
-            if(i %3 == 0){
+            System.out.println("  "+ pakli[i]);
+            if (i % 7 == 0) {
                 System.out.println("");
             }
         }
@@ -45,21 +45,34 @@ public class Orai1002 {
             System.out.println("Melyik oszlop (1-3): ");
             oszlop = scr.nextInt();
             jo = oszlop >= 1 && oszlop <= 3;
-        } while (jo);
+        } while (!jo);
 
         return oszlop;
     }
 
     private static void kever(int oszlop) {
+        String[] ujPakli = new String[22];
         switch (oszlop) {
             case 1:
-                
+                for (int i = 1; i <= 7; i++) {
+                    ujPakli[i] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
                 break;
             case 2:
-                
+                for (int i = 1; i <= 7; i++) {
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
                 break;
             case 3:
-                
+                for (int i = 1; i <= 7; i++) {
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[21 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[20 - (i - 1) * 3];
+                }
                 break;
             default:
                 throw new AssertionError();
@@ -68,7 +81,7 @@ public class Orai1002 {
 
     private static void ezVolt() {
         System.out.println("Kiválasztott lap: " + pakli[11]);
-        System.out.printf("");
+
     }
 
 }
