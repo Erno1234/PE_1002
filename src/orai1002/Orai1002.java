@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Orai1002 {
 
-    private static String[] pakli = new String[22];
-    private static Scanner scr = new Scanner(System.in);
+    private static final String[] pakli = new String[22];
+    private static final Scanner scr = new Scanner(System.in);
 
     public static void main(String[] args) {
         feltolt();
@@ -53,29 +53,28 @@ public class Orai1002 {
     private static void kever(int oszlop) {
         String[] ujPakli = new String[22];
         switch (oszlop) {
-            case 1:
+            case 1 -> {
                 for (int i = 1; i <= 7; i++) {
                     ujPakli[i] = pakli[20 - (i - 1) * 3];
                     ujPakli[i + 7] = pakli[19 - (i - 1) * 3];
                     ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
                 }
-                break;
-            case 2:
+            }
+            case 2 -> {
                 for (int i = 1; i <= 7; i++) {
                     ujPakli[i] = pakli[19 - (i - 1) * 3];
                     ujPakli[i + 7] = pakli[20 - (i - 1) * 3];
                     ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
                 }
-                break;
-            case 3:
+            }
+            case 3 -> {
                 for (int i = 1; i <= 7; i++) {
                     ujPakli[i] = pakli[19 - (i - 1) * 3];
                     ujPakli[i + 7] = pakli[21 - (i - 1) * 3];
                     ujPakli[i + 14] = pakli[20 - (i - 1) * 3];
                 }
-                break;
-            default:
-                throw new AssertionError();
+            }
+            default -> throw new AssertionError();
         }
     }
 
